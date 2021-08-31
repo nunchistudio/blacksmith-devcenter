@@ -1,0 +1,19 @@
+titleAndCommits: true
+allowMergeCommits: true
+allowRevertCommits: true
+
+types:
+  - "docs"
+  - "feat"
+  - "fix"
+  - "style"
+  - "refactor"
+  - "revert"
+  - "version"
+
+scopes:
+  - "cli"
+  - "integrations"
+  - "gateway"
+  - "server"
+  - "workers"

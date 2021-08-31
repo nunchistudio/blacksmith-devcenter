@@ -1,0 +1,7 @@
+---
+
+integrations:
+  values:
+    connection: "<bucket>"
+
+---
