@@ -12,3 +12,6 @@ each has it own technical and organizational challenges.
 - **Namespaces** allow isolation from one group to another within the cluster
   where each one has its own security and scalability policies. The main use-case
   is for multi-tenancy, with a dedicated namespace for each team or customer.
+- The **Elastic Stack** integration allows to index, search, and monitor your
+  entire data engineering platform within Kibana. It leverages Elasticsearch for
+  indexing and APM for observability.

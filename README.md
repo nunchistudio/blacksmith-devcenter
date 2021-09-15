@@ -102,7 +102,9 @@ a Docker image.
 - **Blacksmith Enterprise Edition** is aimed at larger teams. It addresses the
   governance and collaboration challenges they face when working on more complex
   data solutions. It brings additional features such as *namespaces* (for
-  multi-tenancy) and an integration with the Elastic Stack.
+  multi-tenancy) and a deep integration with the Elastic Stack.
+
+![Blacksmith with Elastic](https://nunchi.studio/images/blacksmith/elastic-traces.png)
 
 ## Professional services
 

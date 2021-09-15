@@ -19,3 +19,4 @@ scopes:
   - "server"
   - "workers"
   - "postgres"
+  - "elastic"
