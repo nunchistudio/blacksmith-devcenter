@@ -10,6 +10,7 @@ types:
   - "refactor"
   - "revert"
   - "version"
+  - "schemas"
 
 scopes:
   - "cli"
@@ -17,3 +18,4 @@ scopes:
   - "gateway"
   - "server"
   - "workers"
+  - "postgres"
