@@ -5,7 +5,7 @@ ARG GO_OS=linux
 ARG GO_ARCH=amd64
 
 # Set the default Blacksmith variables if not set.
-ARG BLACKSMITH_VERSION=1.0.0-rc2
+ARG BLACKSMITH_VERSION=1.0.0-rc3
 ARG BLACKSMITH_EDITION=standard
 
 # Set the remote URL and the archive name to download.

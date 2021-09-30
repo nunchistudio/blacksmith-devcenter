@@ -1,6 +1,6 @@
 .PHONY: build
 
-export BLACKSMITH_VERSION=1.0.0-rc2
+export BLACKSMITH_VERSION=1.0.0-rc3
 
 build:
 	./scripts/build.sh
