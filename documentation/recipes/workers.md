@@ -23,6 +23,5 @@ services:
 
 ---
 
-The workers don't need configuration at all. Our goal is to simplify networking,
-scalability, and security as much as possible so end-users don't need to worry
-about those. *This may change in a near future depending on the feedback received.*
+Workers only needs configuration for following production best-practices. We
+invite to [follow the dedicated guides to learn more](/blacksmith/production).
