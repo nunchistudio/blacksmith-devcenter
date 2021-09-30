@@ -20,3 +20,4 @@ scopes:
   - "workers"
   - "postgres"
   - "elastic"
+  - "docker"
