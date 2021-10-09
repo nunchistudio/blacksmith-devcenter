@@ -72,7 +72,8 @@ resources:
 Once registered, an integration of type `sql` allows to interact with a SQL store 
 for **L**oading data into a database.
 
-It can also be leveraged for managing queries, operations, and migrations:
+It can also be leveraged for managing *migrations*, *operations*, and *selects*
+like in this example:
 ```bash
 $ blacksmith migrations run \
   --integration my-sql-store

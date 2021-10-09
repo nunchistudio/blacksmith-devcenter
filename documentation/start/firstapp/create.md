@@ -35,11 +35,19 @@ started faster in development. It includes:
 - A PostgreSQL database used as a simple warehouse across the guides.
 - The Temporal UI for exploring your Blacksmith application.
 
-You can customize the stack as much as you need, and then run it with:
+It automatically initializes the Blacksmith `store` and `visibility` databases
+when running for the first time so you don't need to worry about anything in a
+development environment. This automation uses Docker's file sharing. Therefore,
+you must  ensure the directory where the application has been generated can be
+bind mounted into Docker containers:
+
+![Docker file sharing](/images/blacksmith/docker-sharing.png)
+
+If not properly initialized, the `store` and `visibility` databases will not have
+the required schemas. Blacksmith will then return a SQL error when starting the
+server.
+
+You can customize the stack as much as you need and run it with:
 ```bash
 $ docker compose up -d
 ```
-
-It automatically initializes the Blacksmith `store` and `visibility` databases
-when running for the first time so you don't need to worry about anything in a
-development environment.
