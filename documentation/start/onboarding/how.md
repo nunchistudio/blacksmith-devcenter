@@ -23,21 +23,21 @@ engineering platform from end-to-end.
 
 Blacksmith is built around some concepts, where the most important ones are as
 followed:
-- **Integrations** are systems you can interact with, such as databases or web
-  services.
+- **Integrations** are systems you can interact with, such as databases, message
+  brokers or web services.
 - The **server** is the orchestration service. The server itself does not execute
   application code, but instead tracks the state of it using queues, timers, and
   a database. It is highly scalable and multi-tenant, capable of running millions
   of tasks simultaneously. It employs various sharding techniques to ensure
   scalability internally. And it is capable of scaling horizontally by running
   multiple instances on multiple hosts.
-- The **workers** are services that executes the code against integrations. There
+- The **workers** are services that execute the code against integrations. There
   are two types of workers:
   - The **loader** is in charge of Loading data asynchronously into integrations.
-    This worker is necessary if you leverage Blacksmith for ETL.
-  - The **operator** is in charge of running operations, queries, and migrations
-    synchronously against SQL integrations and leverages a remote *mutex* for
-    handling access locks. This worker is necessary if you leverage Blacksmith
+    This worker is necessary if you leverage Blacksmith for ETL / ELT.
+  - The **operator** is in charge of running *migrations*, *operations*, and
+    *selects* synchronously against SQL integrations and leverages a remote *mutex*
+    for handling access locks. This worker is necessary if you leverage Blacksmith
     for SQL operations and migrations.
 - The **clients** give instructions to the server, such as Loading data or running
   migrations. There are three types of clients:
@@ -47,16 +47,16 @@ followed:
   - The **SDKs** can be used by software engineers inside existing applications.
     These applications only need to call a single function to Load data into
     integrations.
-  - The **CLI** is used to run operations, queries, and migrations on top of SQL
-    integrations.
+  - The **CLI** is used to run *migrations*, *operations*, and *selects* on top
+    of SQL integrations.
 
 In the following schema, we highlighted the E(T)L part:
 ![ETL with Blacksmith](/images/blacksmith/how-etl.png)
 
 ## Overview of SQL integrations
 
-In addition to data **L**oading, SQL integrations are able to handle *selects*,
-*operations*, and *migrations*.
+In addition to data **L**oading, SQL integrations are able to handle *migrations*,
+*operations*, and *selects*.
 
 A *select* executes a statement that returns rows, typically a `SELECT`. As the
 name suggests, queries should be used for `SELECT`ing samples of data.

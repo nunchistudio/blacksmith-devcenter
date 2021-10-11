@@ -10,8 +10,8 @@ They are the middlemen executing the desired tasks. As detailed in the ["How it
 works"](/blacksmith/start/onboarding/how), the `loader` and `operator` are two
 workers running different kind of tasks:
 - The **loader** is in charge of Loading data asynchronously into integrations.
-  This worker is necessary if you leverage Blacksmith for ETL.
-- The **operator** is in charge of running operations, queries, and migrations
+  This worker is necessary if you leverage Blacksmith for ETL / ELT.
+- The **operator** is in charge of running *migrations*, *operations*, and *selects*
   synchronously against SQL integrations and leverages a remote *mutex* for
   handling access locks. This worker is necessary if you leverage Blacksmith for
   SQL operations and migrations.
@@ -24,6 +24,8 @@ rely the following environment variables to properly work:
 BLACKSMITH_SERVER_URL=localhost:7200
 BLACKSMITH_NAMESPACE=default
 ```
+
+They are automatically added in `.env` files when generating an application.
 
 ## The default namespace
 

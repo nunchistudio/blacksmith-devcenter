@@ -29,7 +29,7 @@ Blacksmith architecture is designed to:
   organizational, technical, and legal requirements your organization or customers
   might have.
 
-[The Blacksmith recipes](https://nunchi.studio/blacksmith/recipes) allow you to
+[The interactive tour](https://nunchi.studio/blacksmith/tour) allows you to
 configure your integrations along ETL / ELT within a few lines:
 
 ```yml

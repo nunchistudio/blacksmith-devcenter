@@ -31,4 +31,4 @@ integrations:
 This integration is named `warehouse`. This is the name that must be set when
 an integration's name is required.
 
-Refer to the [recipes](/blacksmith/recipes) for all options and drivers.
+Refer to the [interactive tour](/blacksmith/tour) for all options and drivers.

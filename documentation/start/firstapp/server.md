@@ -21,6 +21,8 @@ BLACKSMITH_STORE_URL=postgres://user:password@host:5401/blacksmith_store
 BLACKSMITH_VISIBILITY_URL=postgres://user:password@host:5402/blacksmith_visibility
 ```
 
+They are automatically added in `.env` files when generating an application.
+
 If you need to verify the Blacksmith environment variables, you can run:
 ```bash
 $ blacksmith env

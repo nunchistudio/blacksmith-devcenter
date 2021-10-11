@@ -25,6 +25,11 @@ $ blacksmith generate application \
 
 The directory will be created if it does not exist yet.
 
+This command generates hidden files starting with a dot, such as `.env` files
+for managing environment variables. You may need to update your code editor or
+system preferences to access and edit those files. Take a look at the [application
+reference](/blacksmith/tour) to discover what they look like.
+
 ## Docker stack for development
 
 A `Docker-compose.yml` is generated along your application. This file is not
