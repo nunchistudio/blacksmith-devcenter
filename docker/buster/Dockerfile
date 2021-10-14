@@ -1,4 +1,4 @@
-FROM golang:1.17.1-buster
+FROM golang:1.17.2-buster
 
 # Retrieve the target OS/Arch from buildx.
 ARG TARGETOS
