@@ -114,7 +114,7 @@ gateway:
           The policy to apply for this trigger. When set, it will override the
           value of the parent source if applicable.
 
-    mapping:
+    transformation:
       values:
         user_id: "body.data.user.id"
         subscription_id: "body.data.subscriptions[0].id"
@@ -182,4 +182,4 @@ service), the trigger exposes:
   ```
 
 The value of each of the keys defined above can be passed to integrations using
-the `mapping` object.
+the `transformation` object.

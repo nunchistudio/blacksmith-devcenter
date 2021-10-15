@@ -47,7 +47,7 @@ gateway:
       - key: "queue"
         type: "string"
 
-    mapping:
+    transformation:
       values:
         user_id: "body.data.user.id"
         subscription_id: "body.data.subscriptions[0].id"
@@ -98,4 +98,4 @@ the defined trigger), the trigger exposes:
   ```
 
 The value of each of the keys defined above can be passed to integrations using
-the `mapping` object.
+the `transformation` object.

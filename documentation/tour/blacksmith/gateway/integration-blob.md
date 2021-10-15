@@ -41,8 +41,8 @@ gateway:
 
 ### Transformation & Load to a bucket
 
-Given the example defined above and the `mapping` defined in the example on the
-*code* section, the JSON document written into the bucket would be:
+Given the example defined above and the `transformation` defined in the example
+on the *code* section, the JSON document written into the bucket would be:
 ```json
 {
   "user_id": "4d6c34df-250e-4fb5-bfb2-27e8d4e9becf",

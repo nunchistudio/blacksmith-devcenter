@@ -63,7 +63,7 @@ gateway:
         description: |
           The channel to subscribe to for receiving notifications.
 
-    mapping:
+    transformation:
       values:
         user_id: "new.user_id"
         subscription_id: "new.subscription_id"

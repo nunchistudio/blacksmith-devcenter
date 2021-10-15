@@ -45,9 +45,9 @@ INSERT INTO transactions (
 A SQL query can be passed directly with the `inline` key instead of the `file`
 one.
 
-Given the `body` example defined above, the `mapping` defined in the example on
-the *code* section, and the content of the `file` SQL query, the compiled SQL query
-would be:
+Given the `body` example defined above, the `transformation` defined in the example
+on the *code* section, and the content of the `file` SQL query, the compiled SQL
+query would be:
 ```sql
 INSERT INTO transactions (
   id,

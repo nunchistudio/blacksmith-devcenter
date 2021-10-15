@@ -40,8 +40,8 @@ gateway:
 
 ### Transformation & Load to a HTTP endpoint
 
-Given the example defined above, the `options` and `mapping` defined in the example
-on the *code* section, the `curl` representation of the request would be:
+Given the example defined above, the `options` and `transformation` defined in the
+example on the *code* section, the `curl` representation of the request would be:
 ```bash
 $ curl --request 'POST' \
   --url '<integration-base-url>/endpoint?search=mysearchqueryparam' \

@@ -84,8 +84,8 @@ sources:
 The gateway now exposes a route `POST` on `/api/users`.
 
 Finally, we add the integration `warehouse` in the `integrations` object.
-The integration takes a `mapping` in addition to `options`, specific to each
-kind of integration:
+The integration takes a `transformation` in addition to `options`, specific to
+each kind of integration:
 ```yml
 sources:
   - name: "api"
@@ -101,7 +101,7 @@ sources:
             endpoint: "/users"
         integrations:
           - name: "warehouse"
-            mapping:
+            transformation:
               user: "body.user"
             options:
               inline: |
@@ -109,11 +109,11 @@ sources:
                   ('{% uuid %}', '{{ user.username }}');
 ```
 
-The `mapping` allows to expose data to the integrations, mapped from keys exposed
-by the trigger. In the example above, the integration `warehouse` has access to
-a key `user`, which is the data of `body.user` exposed by the trigger. Knowing
+The `transformation` allows to expose data to the integrations, mapped from keys
+exposed by the trigger. In the example above, the integration `warehouse` has access
+to a key `user`, which is the data of `body.user` exposed by the trigger. Knowing
 this, the integration can insert a new user by accessing the `user` object exposed
-by the `mapping`.
+by the `transformation`.
 
 In summary, this triggers accepts `POST` requests on `/api/users`. On each request,
 the integration `warehouse` is leveraged and the query in `inline` is executed.

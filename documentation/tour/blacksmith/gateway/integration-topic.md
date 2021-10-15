@@ -16,8 +16,8 @@ gateway:
 
 ### Transformation & Load to a topic
 
-Given the example defined above and the `mapping` defined in the example on the
-*code* section, the JSON message published into the topic would be:
+Given the example defined above and the `transformation` defined in the example
+on the *code* section, the JSON message published into the topic would be:
 ```json
 {
   "user_id": "4d6c34df-250e-4fb5-bfb2-27e8d4e9becf",
