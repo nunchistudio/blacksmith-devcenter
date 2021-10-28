@@ -77,3 +77,15 @@ Executing migrations:
     --version 20210422135835 \
     --discard
   ```
+
+- `--auto-approve`: Skip interactive approval before rolling back migration(s).
+  This option is useful for rolling back migrations in a non-interactive environment,
+  such as inside a CI / CD platform.
+
+  **Example:**
+  ```bash
+  $ blacksmith migrations rollback \
+    --integration warehouse \
+    --version 20210422135835 \
+    --auto-approve
+  ```

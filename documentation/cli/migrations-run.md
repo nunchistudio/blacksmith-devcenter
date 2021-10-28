@@ -52,3 +52,14 @@ Executing migrations:
     --integration warehouse \
     --version 20210422135835
   ```
+
+- `--auto-approve`: Skip interactive approval before running migration(s). This
+  option is useful for running migrations in a non-interactive environment, such
+  as inside a CI / CD platform.
+
+  **Example:**
+  ```bash
+  $ blacksmith migrations run \
+    --integration warehouse \
+    --auto-approve
+  ```
