@@ -11,6 +11,7 @@ is the recommended way for a developer to get started quickly and efficiently.
 **Example:**
 ```bash
 $ blacksmith generate application \
+  --name myproject \
   --path ./myproject
 
 Generating files:
@@ -18,6 +19,19 @@ Generating files:
   -> Generating application at ./myproject
      Success!
 ```
+
+## Required flags
+
+- `--name [name]`: Set the name of the application. It shall be a valid name only
+  containing lowercase letters (`a-z`), underscores (`_`), and dashes (`-`).
+
+  **Aliases:** `-n [name]`
+
+  **Example:**
+  ```bash
+  $ blacksmith generate application \
+    --name myproject
+  ```
 
 ## Optional flags
 
@@ -27,9 +41,10 @@ Generating files:
   the CLI, an error will be prompted. The CLI will never override existing files.
 
   **Aliases:** `-p [path]`
-  
+
   **Example:**
   ```bash
   $ blacksmith generate application \
+    --name myproject \
     --path ./myproject
   ```

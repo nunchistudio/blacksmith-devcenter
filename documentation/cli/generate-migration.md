@@ -21,9 +21,11 @@ Generating files:
 
 ## Required flags
 
-- `--name [migration]`: Set the name of the migration. It shall be an overview
+- `--name [name]`: Set the name of the migration. It shall be an overview
   of the migration's changes. It shall be a valid name only containing lowercase
   letters (`a-z`), underscores (`_`), and dashes (`-`).
+
+  **Aliases:** `-n [name]`
 
   **Example:**
   ```bash
