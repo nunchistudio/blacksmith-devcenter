@@ -19,6 +19,7 @@ The **Configuration** section focuses on the Blacksmith configuration to apply
 for optimised and secure deployments. Each guide within this section should be
 considered as an item to do for an ideal production configuration:
 
+[x] Explicit Blacksmith version
 [x] Appropriate policies
 [x] Retention and archival
 [x] TLS everywhere

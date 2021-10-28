@@ -10,8 +10,8 @@ object in `BLACKSMITH_DIR/services.BLACKSMITH_EXT`:
 ```yml
 server:
   archival:
-    driver: aws/s3
-    connection: mybucket
+    driver: "aws/s3"
+    connection: "mybucket"
 ```
 
 The driver follows the AWS SDKs conventions and best practices, using reserved
