@@ -34,10 +34,11 @@ of:
   data is the payload sent by the HTTP request.
 - `http_client` makes a HTTP request against an external web service based on a
   CRON schedule. The **E**xtracted data is the HTTP response returned by the API.
-- `sql_cdc` is a Change Data Capture for SQL databases. It listens to changes
-  within a database and streams the changes into the trigger. The **E**xtracted
+- `cdc` is a Change Data Capture for databases. It listens to changes within a
+  database and streams the changes into the trigger. The **E**xtracted
   data contains some details such as the `table`, `operation`, `old` row, and
   `new` row. We support different drivers:
+  - MongoDB (`mongodb`)
   - PostgreSQL (`postgresql`)
 - `subscription` subscribes to a *topic* of a message broker. The **E**xtracted
   data is the message received by the subscription. We support different drivers:

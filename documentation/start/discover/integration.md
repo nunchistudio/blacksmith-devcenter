@@ -14,17 +14,16 @@ Integrations are registered in the file dedicated located at
 we'll register a SQL integration using the PostgreSQL driver. It is the container
 [in the Docker stack previously started](/blacksmith/start/firstapp/create).
 
-Every integrations are registered under the `integrations` key, mapped by their
-integration kind. `sql` allows to register multiple SQL integrations. Everyone
-one of them must have a unique name.
+Every integrations are registered inside this file, mapped by their integration
+kind. `sql` allows to register multiple SQL integrations. Everyone one of them
+must have a unique name.
 
 The minimal configuration for a SQL integration is as follow:
 ```yml
-integrations:
-  sql:
-    - name: "warehouse"
-      driver: "postgresql"
-      connection: "ANY_ENV_VAR"
+sql:
+  - name: "warehouse"
+    driver: "postgresql"
+    connection: "ANY_ENV_VAR"
 ```
 
 The connection string to connect to the SQL store is retrieved from an environment
@@ -39,18 +38,17 @@ ANY_ENV_VAR=postgres://<user>:<password>@<host>:<port>/<db>?<params>
 In addition to a required `name` and integration-specific configuration, an
 integration can have `policies`:
 ```yml
-integrations:
-  sql:
-    - name: "warehouse"
-      driver: "postgresql"
-      connection: "ANY_ENV_VAR"
-      policies:
-        load:
-          timeout: 20
-          initialInterval: 30
-          backoffCoefficient: 2
-          maximumInterval: 3600
-          maximumAttempts: 50
+sql:
+  - name: "warehouse"
+    driver: "postgresql"
+    connection: "ANY_ENV_VAR"
+    policies:
+      load:
+        timeout: 20
+        initialInterval: 30
+        backoffCoefficient: 2
+        maximumInterval: 3600
+        maximumAttempts: 50
 ```
 
 The `load` policies are applied when **L**oading data into the integration. They
@@ -76,4 +74,4 @@ aware of the changes we've just made.
 Note that we do not need to restart the server! This way, the server is always
 up to avoid connections loses with the clients as much as possible.
 
-We now have a ready-to-use integration. How can we Load data into it?
+We now have a ready-to-use integration. How can we **L**oad data into it?
