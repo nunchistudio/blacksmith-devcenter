@@ -22,4 +22,18 @@ integrations:
 ### Working with topics
 
 Once registered, an integration of type `webhook` allows to interact with a HTTP
-API for **L**oading data into a web service.
+API for **L**oading data into a web service. Within a trigger in the gateway:
+```yml
+sources:
+  - name: "my-source"
+    # ...
+    triggers:
+      - name: "my-trigger"
+        # ...
+        integrations:
+          - name: "my-webhook"
+            transformation:
+              # ...
+            options:
+              # ...
+```

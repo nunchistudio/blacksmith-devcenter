@@ -22,7 +22,7 @@ integrations:
         The driver-specific connection string.
 
     - key: "params"
-      type: "map[string][]string"
+      type: "url.Values"
       description: |
         Driver-specific params to pass to the connection string.
 
@@ -31,4 +31,19 @@ integrations:
 ### Working with topics
 
 Once registered, an integration of type `topic` allows to interact with a message
-broker for **L**oading (a.k.a. *publishing*) data into a topic.
+broker for **L**oading (a.k.a. *publishing*) data into a topic. Within a trigger
+in the gateway:
+```yml
+sources:
+  - name: "my-source"
+    # ...
+    triggers:
+      - name: "my-trigger"
+        # ...
+        integrations:
+          - name: "my-topic"
+            transformation:
+              # ...
+            options:
+              # ...
+```

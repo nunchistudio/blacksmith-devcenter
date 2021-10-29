@@ -26,7 +26,7 @@ gateway:
           The default method to use for making the HTTP request.
 
       - key: "headers"
-        type: "map[string][]string"
+        type: "url.Values"
         example:
           Content-Type:
             - "application/json"
@@ -77,7 +77,7 @@ gateway:
           its parent source.
 
       - key: "query"
-        type: "map[string][]string"
+        type: "url.Values"
         example:
           search:
             - "mysearchqueryparam"
@@ -86,7 +86,7 @@ gateway:
           URL after the base URL and endpoint.
 
       - key: "headers"
-        type: "map[string][]string"
+        type: "url.Values"
         example:
           Content-Type:
             - "application/json"
@@ -131,32 +131,34 @@ passed in the source's `defaults.http_client` config and the `config.http_client
 of the said trigger.
 
 Once **E**xtracted (in other words, once the HTTP request was made against the
-service), the trigger exposes:
-- `status`: The status of the Extraction process. It is one of `succeeded`,
-  `failed`.
-- `statusCode`: The HTTP status code returned by the service. Example: `201`.
+service), the trigger returns a JSON object with:
+- `status`: The status of the **E**xtraction. It is one of `success`, `failure`.
+- `statusCode`: The HTTP status code returned by the service.
+- `contentLength`: The content length of the response returned by the service.
 - `method`: The HTTP method used to make the request. It is the one defined in
   trigger's config and is here for convenience.
-  Example: `POST`.
 - `url`: The complete HTTP URL, including the base URL of the source, as well as
   the trigger's endpoint and query params.
-  Example: `https://api.example.com/endpoint?search=mysearchqueryparam`.
-- `contentLength`: The content length of the response returned by the service.
-  Example: `64`.
-- `headers`: The headers of the response returned by the service. Example:
-  ```json
-  {
+- `headers`: The headers of the response returned by the service.
+- `body`: The JSON marshaled body returned by the service.
+
+Knowing this, a trigger of mode `http_client` shall return an object like this:
+```json
+{
+  "status": "success",
+  "statusCode": 201,
+  "contentLength": 320,
+  "method": "PUT",
+  "url": "https://api.example.com/endpoint?search=mysearchqueryparam",
+  "headers": {
     "Content-Type": [
       "application/json"
     ],
     "Vary": [
       "Origin"
     ]
-  }
-  ```
-- `body`: The JSON marshaled body returned by the service. Example:
-  ```json
-  {
+  },
+  "body": {
     "message": "Successful",
     "error": null,
     "data": {
@@ -179,7 +181,8 @@ service), the trigger exposes:
       ]
     }
   }
-  ```
+}
+```
 
-The value of each of the keys defined above can be passed to integrations using
-the `transformation` object.
+This object is then available in the `transformation` object for each integration
+configured within the trigger, as described below.

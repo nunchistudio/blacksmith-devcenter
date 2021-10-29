@@ -10,16 +10,16 @@ enterprise: false
 In the integration previously created, we can add a `migrations` key and a policy
 dedicated to migration management:
 ```yml
-integrations:
-  sql:
-    - name: "warehouse"
+sql:
+  - name: "warehouse"
+    # ...
+    migrations: "./warehouse/migrations"
+    policies:
       # ...
-      policies:
-        # ...
-        migration:
-          timeout: 20
-        operation:
-          timeout: 20
+      migration:
+        timeout: 20
+      operation:
+        timeout: 20
 ```
 
 `migrations` represents the path to the directory where all migrations files for

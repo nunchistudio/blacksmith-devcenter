@@ -51,7 +51,7 @@ gateway:
 
       - key: "endpoint"
         type: "string"
-        example: "/endpoint"
+        example: "/users/:user"
         required: true
         description: |
           The endpoint to use for accepting HTTP requests. It is prefixed by
@@ -73,46 +73,43 @@ gateway. This way, it can be requested by clients when desired, such as
 **E**xtracting data from a webhook.
 
 Once **E**xtracted (in other words, once a HTTP request was made against the
-defined trigger), the trigger exposes:
-- `status`: The status of the Extraction process. It is one of `succeeded`,
-  `failed`.
+defined trigger), the trigger returns a JSON object with:
+- `status`: The status of the **E**xtraction. It is one of `success`, `failure`.
 - `statusCode`: The HTTP status code returned by the trigger. It is one of `202`
-  (in case of `status` is `succeeded`), `400` or `500` (in case of `status` is
-  `failed`).
+  (in case of `status` is `success`), `400` or `500` (in case of `status` is
+  `failure`).
+- `contentLength`: The content length of the request's body.
 - `method`: The HTTP method used by the client to make the request.
-  Example: `POST`.
 - `endpoint`: The path requested by the client.
-  Example: `/endpoint`.
 - `query`: The HTTP query params passed by the client when making the request.
-  Example:
-  ```json
-  {
+- `params`: The key / value of the route params. If an endpoint contains route
+  params, such as in `/users/:user`, a HTTP request at `/users/johndoe` will
+  have `"user": "johndoe"` as you can see in the full JSON example below.
+- `headers`: The headers of the request passed by the client.
+- `body`: The JSON marshaled body of the request passed by the client.
+
+Knowing this, a trigger of mode `http_endpoint` shall return an object like this:
+```json
+{
+  "status": "success",
+  "statusCode": 202,
+  "contentLength": 192,
+  "method": "POST",
+  "endpoint": "/users/:user",
+  "query": {
     "search": [
       "mysearchqueryparam"
     ]
-  }
-  ```
-- `params`: The key / value of the route params. If an endpoint contains params,
-  such as `/users/:user` and the path requested is `/users/johndoe`, then `params`
-  would be:
-  ```json
-  {
+  },
+  "params": {
     "user": "johndoe"
-  }
-  ```
-- `contentLength`: The content length of the request's body.
-  Example: `192`.
-- `headers`: The headers of the request passed by the client. Example:
-  ```json
-  {
+  },
+  "headers": {
     "Content-Type": [
       "application/json"
     ]
-  }
-  ```
-- `body`: The JSON marshaled body of the request passed by the client. Example:
-  ```json
-  {
+  },
+  "body": {
     "user": {
       "id": "4d6c34df-250e-4fb5-bfb2-27e8d4e9becf",
       "first_name": "John",
@@ -131,7 +128,8 @@ defined trigger), the trigger exposes:
       }
     ]
   }
-  ```
+}
+```
 
-The value of each of the keys defined above can be passed to integrations using
-the `transformation` object.
+This object is then available in the `transformation` object for each integration
+configured within the trigger, as described below.

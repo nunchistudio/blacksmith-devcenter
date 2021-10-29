@@ -22,7 +22,7 @@ integrations:
         The driver-specific connection string.
 
     - key: "params"
-      type: "map[string][]string"
+      type: "url.Values"
       description: |
         Driver-specific params to pass to the connection string.
 
@@ -31,4 +31,18 @@ integrations:
 ### Working with NoSQL databases
 
 Once registered, an integration of type `nosql` allows to interact with a NoSQL
-store for **L**oading data into a collection.
+store for **L**oading data into a collection. Within a trigger in the gateway:
+```yml
+sources:
+  - name: "my-source"
+    # ...
+    triggers:
+      - name: "my-trigger"
+        # ...
+        integrations:
+          - name: "my-nosql-store"
+            transformation:
+              # ...
+            options:
+              # ...
+```

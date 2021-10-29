@@ -64,19 +64,20 @@ received in a subscription of a message broker. It is done by subscribing to a
 and the `config.subscription` of the said trigger.
 
 Once **E**xtracted (in other words, once a message was published and received into
-the defined trigger), the trigger exposes:
-- `status`: The status of the Extraction process. It is one of `succeeded`,
-  `failed`.
-- `meta`: The JSON marshaled metadata of the message, if any. Example:
-  ```json
-  {
+the defined trigger), the trigger returns a JSON object with:
+- `status`: The status of the **E**xtraction. It is one of `success`, `failure`.
+- `meta`: The JSON metadata of the message received by the broker, if any.
+- `body`: The JSON body of the message received by the broker.
+
+Knowing this, a trigger of mode `subscription` shall return an object like this:
+```json
+{
+  "status": "success",
+  "meta": {
     "language": "en",
     "source": "js-sdk"
-  }
-  ```
-- `body`: The JSON marshaled body of the request passed by the client. Example:
-  ```json
-  {
+  },
+  "body": {
     "user": {
       "id": "4d6c34df-250e-4fb5-bfb2-27e8d4e9becf",
       "first_name": "John",
@@ -95,7 +96,8 @@ the defined trigger), the trigger exposes:
       }
     ]
   }
-  ```
+}
+```
 
-The value of each of the keys defined above can be passed to integrations using
-the `transformation` object.
+This object is then available in the `transformation` object for each integration
+configured within the trigger, as described below.

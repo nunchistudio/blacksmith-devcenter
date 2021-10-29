@@ -70,7 +70,22 @@ resources:
 ### Working with SQL databases
 
 Once registered, an integration of type `sql` allows to interact with a SQL store 
-for **L**oading data into a database.
+for **L**oading data into a database. Within a trigger in the gateway:
+```yml
+sources:
+  - name: "my-source"
+    # ...
+    triggers:
+      - name: "my-trigger"
+        # ...
+        integrations:
+          - name: "my-sql-store"
+            transformation:
+              # ...
+            options:
+              # ...
+```
+
 
 It can also be leveraged for managing *migrations*, *operations*, and *selects*
 like in this example:

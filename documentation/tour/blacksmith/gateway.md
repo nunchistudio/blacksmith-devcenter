@@ -25,5 +25,6 @@ resources:
 
 The Blacksmith **gateway** is a YAML / JSON-only application to **E**xtract data
 from various sources, **T**ransform (if desired) and **L**oad it into integrations.
-The gateway is very handy for capturing events across sources without knowing any
-programming language.
+The gateway allows to have an end-to-end ETL pipeline without knowing any
+programming language and without worrying about data reliabilty: Blacksmith handles
+orchestration under the hood thanks to its server / worker architecture.
