@@ -1,4 +1,4 @@
-FROM golang:1.17.2-bullseye
+FROM golang:1.17.3-bullseye
 
 # Retrieve the target OS/Arch from buildx.
 ARG TARGETOS
