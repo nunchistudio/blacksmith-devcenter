@@ -21,6 +21,7 @@ considered as an item to do for an ideal production configuration:
 
 [x] Explicit Blacksmith version
 [x] Appropriate policies
+[x] Well-defined models
 [x] Retention and archival
 [x] TLS everywhere
 

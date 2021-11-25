@@ -27,4 +27,5 @@ Using [Insomnia](https://insomnia.rest/):
 
 ![Your first event](/images/blacksmith/insomnia.png)
 
-Finally, we can retrieve our users from the database by running a select.
+As a best practice, we should add data validations using *models*, both pre and
+post **T**ransformation.
