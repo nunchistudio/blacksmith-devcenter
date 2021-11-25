@@ -13,18 +13,18 @@ dedicated to migration management:
 sql:
   - name: "warehouse"
     # ...
-    migrations: "./warehouse/migrations"
     policies:
       # ...
       migration:
+        path: "./warehouse/migrations"
         timeout: 20
       operation:
         timeout: 20
 ```
 
-`migrations` represents the path to the directory where all migrations files for
-this integration are stored. The `timeout` (in seconds) is the maximum time of a
-single migration execution. This timeout should be as short as the longest possible
+`path` represents the path to the directory where all migrations files for this
+integration are stored. The `timeout` (in seconds) is the maximum time of a single
+migration execution. This timeout should be as short as the longest possible
 execution of a migration or an operation.
 
 ## Generating a new migration
@@ -96,5 +96,5 @@ Latest migration:
 No migrations to run.
 ```
 
-Now that the gateway and database are both ready, the flow from Extraction to
-Loading can be triggered.
+Now that the gateway and database are both ready, the flow from **E**xtraction
+to **L**oading can be triggered.

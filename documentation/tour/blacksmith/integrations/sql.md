@@ -30,15 +30,16 @@ integrations:
       description: |
         The driver-specific connection string.
 
-    - key: "migrations"
-      type: "string"
-      example: "./warehouse/migrations"
-      description: |
-        Relative path for finding migrations of the integration.
-
 policies:
   migration:
     schema:
+      - key: "path"
+        type: "string"
+        example: "./warehouse/migrations"
+        required: true
+        description: |
+          Relative path for finding migrations of the integration.
+
       - key: "timeout"
         type: "integer"
         example: 45
