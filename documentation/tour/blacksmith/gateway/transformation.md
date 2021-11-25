@@ -5,7 +5,7 @@
 ### Transformation syntax
 
 In the `transformation` object of the trigger, each key has access to the
-[Transformation syntax](/blackmsith/transformation). This means that values can
+[Transformation syntax](/blacksmith/transformation). This means that values can
 be dynamically computed from the JSON returned by the **E**xtraction as explained
 above.
 
