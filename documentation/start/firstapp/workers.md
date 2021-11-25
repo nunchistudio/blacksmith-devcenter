@@ -9,17 +9,17 @@ The workers must be running if you want clients to interact with integrations.
 They are the middlemen executing the desired tasks. As detailed in the ["How it
 works"](/blacksmith/start/onboarding/how), the `loader` and `operator` are two
 workers running different kind of tasks:
-- The **loader** is in charge of Loading data asynchronously into integrations.
+- The **loader** is in charge of **L**oading data asynchronously into integrations.
   This worker is necessary if you leverage Blacksmith for ETL / ELT.
-- The **operator** is in charge of running *migrations*, *operations*, and *selects*
-  synchronously against SQL integrations and leverages a remote *mutex* for
-  handling access locks. This worker is necessary if you leverage Blacksmith for
-  SQL operations and migrations.
+- The **operator** is in charge of running *migrations* and *operations* 
+  synchronously against SQL integrations. It leverages a remote *mutex* for
+  handling access locks. This worker is necessary if you leverage Blacksmith
+  for SQL migrations and operations.
 
 ## Environment
 
 In addition to `BLACKSMITH_DIR`, `BLACKSMITH_ENV`, and `BLACKSMITH_EXT`, workers
-rely the following environment variables to properly work:
+rely on the following environment variables to properly work:
 ```bash
 BLACKSMITH_SERVER_URL=localhost:7200
 BLACKSMITH_NAMESPACE=default

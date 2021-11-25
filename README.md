@@ -6,8 +6,9 @@ only, or using our SDKs directly from third-party applications. It also allows
 **data engineers** to run operations (a.k.a. **T**ransformations), queries (a.k.a.
 *SELECT*s), and migrations on top of any SQL database.
 
-This approach lets engineering teams collaborate on managing a unique data
-engineering platform from end-to-end.
+This approach lets engineering teams get rid of every counterproductive tasks,
+as well as collaborate on a unique and consistent data platform from end-to-end:
+![DataOps with Blacksmith](https://nunchi.studio/images/blacksmith/how-overview.png)
 
 Any team that is building — or think about building — such a platform knows the
 tremendous amount of work needed to properly accomplish this mission. Think of

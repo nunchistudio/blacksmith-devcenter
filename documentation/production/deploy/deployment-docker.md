@@ -17,11 +17,11 @@ Images follow the convention:
 `nunchistudio/blacksmith[-edition]:[version][-distribution]`:
 - `edition` is the Blacksmith Edition and is one of `standard`, `enterprise.`
   Defaults to `standard`.
-- `version` is the Blacksmith version. Defaults to `latest`.
+- `version` is the Blacksmith version. We recommend to always explicitly set the
+  `version` to avoid any surprises in production. The `version` must match [the
+  version constraints defined](/blacksmith/production/options/version). Defaults
+  to `latest`.
 - `distribution` is one of `alpine`, `bullseye`, `buster`. Defaults to `bullseye`.
-
-We recommend to always explicitly set the `version` to avoid any surprises in
-production.
 
 When generating a new Blacksmith application, Dockerfiles are created as well
 with:

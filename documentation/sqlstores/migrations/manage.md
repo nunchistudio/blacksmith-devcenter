@@ -82,8 +82,8 @@ Executing migrations:
 
 Migrations are rolled back ordered by version from newest to oldest. If an error
 occured while rolling back a migration, the others will not be rolled back. You
-first need to fix the failing migration to be able to rollback it again along the
-others awaiting to be rolled back.
+first need to fix the failing migration to be able to roll it back again along
+the others awaiting to be rolled back.
 
 ## Discarding migrations
 
@@ -98,7 +98,7 @@ $ blacksmith migrations rollback \
   --discard
 ```
 
-This will mark the migration as `discarded` so it will not be run again.
+This will mark the migration as `discarded` so it is not possible to run it again.
 
 ## Checking the status
 

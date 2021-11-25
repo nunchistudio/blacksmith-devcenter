@@ -23,8 +23,8 @@ together with no access collisions.
 If a user tries to run a task for an integration already in use, Blacksmith will
 try to wait for the running task to complete and then process the next one. If
 the timeout is reached, Blacksmith will return an error and the desired task shall
-be run later. This is why a user may wait for a few seconds before seeing their
-task actually running.
+manually be run later. This is why a user may wait for a few seconds before seeing
+their task actually running.
 
 ## Generating migrations
 

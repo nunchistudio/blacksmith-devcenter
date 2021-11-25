@@ -110,12 +110,12 @@ Blacksmith is composed of three kind of services:
   multiple instances on multiple hosts.
 - The **workers** are services that executes the code against integrations. There
   are two types of workers:
-  - The **loader** is in charge of Loading data asynchronously into integrations.
-    This worker is necessary if you leverage Blacksmith for ETL.
-  - The **operator** is in charge of running operations, queries, and migrations
-    synchronously against SQL integrations and leverages a remote *mutex* for
+  - The **loader** is in charge of **L**oading data asynchronously into integrations.
+    This worker is necessary if you leverage Blacksmith for ETL / ELT.
+  - The **operator** is in charge of running *migrations* and *operations* 
+    synchronously against SQL integrations. It leverages a remote *mutex* for
     handling access locks. This worker is necessary if you leverage Blacksmith
-    for SQL operations and migrations.
-- The **gateway** is a YAML / JSON-only application to Extract data from various
-  sources and Load it into integrations. The gateway is very handy for capturing
-  events across sources without knowing any programming language.
+    for SQL migrations and operations.
+- The **gateway** is a YAML / JSON-only application to **E**xtract data from
+  various sources and Load it into integrations. The gateway is very handy for
+  capturing events across sources without knowing any programming language.
