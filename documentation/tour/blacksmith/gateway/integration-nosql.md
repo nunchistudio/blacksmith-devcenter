@@ -6,7 +6,10 @@ gateway:
 
 ---
 
-### Transformation & Load to a NoSQL database
+### Load to a NoSQL database
+
+When **L**oading data to a NoSQL store, the JSON returned by the `transformation`
+is the one actually **L**oaded into the integration, as the *document*.
 
 Given the example defined above and the `transformation` defined in the example
 on the *code* section, the JSON document put into the NoSQL store would be:

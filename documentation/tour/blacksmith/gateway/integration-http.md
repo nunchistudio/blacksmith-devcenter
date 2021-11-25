@@ -2,7 +2,7 @@
 
 gateway:
   values:
-    name: "my-webhook"
+    name: "my-http-api"
 
   schema:
     - key: "method"
@@ -38,7 +38,11 @@ gateway:
 
 ---
 
-### Transformation & Load to a HTTP endpoint
+### Load to a HTTP endpoint
+
+When **L**oading data to a HTTP ednpoint, the JSON returned by the `transformation`
+is the one actually **L**oaded into the integration, as the *body* of the HTTP
+request.
 
 Given the example defined above, the `options` and `transformation` defined in the
 example on the *code* section, the `curl` representation of the request would be:

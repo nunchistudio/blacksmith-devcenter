@@ -18,6 +18,10 @@ resources:
     title: "CLI: start gateway"
     link: "/blacksmith/cli/start-gateway"
     icon: "console"
+  - parent: "Transformation syntax"
+    title: "Transformation syntax"
+    link: "/blacksmith/transformation"
+    icon: "eql"
   
 ---
 

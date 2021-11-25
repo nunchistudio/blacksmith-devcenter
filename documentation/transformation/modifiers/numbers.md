@@ -11,7 +11,7 @@ Adds the argument to the value.
 
 For example:
 ```sql
-{{ 2|default:4 }}
+{{ 2|add:"4" }}
 ```
 
 Will return:
@@ -81,8 +81,8 @@ Will return:
 34.3
 ```
 
-If used with a numeric integer argument, floatformat rounds a number to that many
-decimal places.
+If used with a numeric integer argument, `floatformat` rounds a number to that
+many decimal places.
 
 For example:
 ```sql
@@ -98,8 +98,8 @@ Will return:
 34.260
 ```
 
-If the argument passed to floatformat is negative, it will round a number to that
-many decimal places – but only if there's a decimal part to be displayed.
+If the argument passed to `floatformat` is negative, it will round a number to
+that many decimal places – but only if there's a decimal part to be displayed.
 
 For example:
 ```sql

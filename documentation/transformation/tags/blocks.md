@@ -32,7 +32,6 @@ CREATE {% block temp %}TEMPORARY{% endblock %} VIEW
   IF NOT EXISTS {% block name %}{% endblock %}
   AS {% block query %}{% endblock %}
   WITH DATA;
-
 ```
 
 In the following template, the `view.sql` is used as base file. We set a `name`,
@@ -47,7 +46,6 @@ tag.
 {% block query %}
   SELECT ...
 {% endblock %}
-
 ```
 
 This outputs:
@@ -56,7 +54,6 @@ CREATE MATERIALIZED VIEW
   IF NOT EXISTS myview
   AS SELECT ...
   WITH DATA;
-
 ```
 
 Normally the template name is relative to the template query's directory. A string
@@ -70,7 +67,6 @@ Loads a template and renders it with the current context. This is a way of
 This example includes the contents of the template located at `./includes/user.sql`:
 ```sql
 {% include "./includes/user.sql" %}
-
 ```
 
 Normally the template name is relative to the template query's directory. A string
@@ -82,7 +78,6 @@ the `{% extends %}` tag.
 You can pass additional context to the template using keyword arguments:
 ```sql
 {% include "./includes/user.sql" with username="janedoe" %}
-
 ```
 
 The template at `./includes/user.sql` could therefore call a variable named
@@ -91,7 +86,6 @@ The template at `./includes/user.sql` could therefore call a variable named
 SELECT id, username, first_name, last_name
   FROM users
   WHERE username = '{{ username }}';
-
 ```
 
 Which compiles to:
@@ -99,7 +93,6 @@ Which compiles to:
 SELECT id, username, first_name, last_name
   FROM users
   WHERE username = 'janedoe';
-
 ```
 
 ## `macro`
@@ -121,7 +114,6 @@ INSERT INTO users (id, username, is_admin) VALUES
 
 {{ insertUser("johndoe") }}
 {{ insertUser("janedoe", "true") }}
-
 ```
 
 Which compiles to:
@@ -131,5 +123,4 @@ INSERT INTO users (id, username, is_admin) VALUES
 
 INSERT INTO users (id, username, is_admin) VALUES
   ('1twYQ19zLfbkK4AdW5NSR0NtGyy', 'janedoe', true);
-
 ```

@@ -43,6 +43,6 @@ sources:
           - name: "my-nosql-store"
             transformation:
               # ...
-            options:
+            config:
               # ...
 ```

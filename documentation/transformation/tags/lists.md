@@ -1,9 +1,9 @@
 ---
-title: Lists
+title: Objects & Arrays
 enterprise: false
 ---
 
-# Lists
+# Objects & Arrays
 
 ## `cycle`
 
@@ -18,7 +18,6 @@ INSERT INTO players (side) VALUES
   {% for player in game.players %}
     ('{% cycle "odd" "even" %}') {% if forloop.Last %};{% else %},{% endif %}
   {% endfor %}
-
 ```
 
 This outputs:
@@ -28,7 +27,6 @@ INSERT INTO players (side) VALUES
   ('even'),
   ('odd'),
   ('even');
-
 ```
 
 You can use the `{% resetcycle %}` tag to make a `{% cycle %}` tag restart from
@@ -47,21 +45,18 @@ Given the following data:
   "choice2": "none",
   "choice3": "",
 }
-
 ```
 
 And given this template SQL:
 ```sql
 INSERT INTO settings (notifications_mobile) VALUES
   ('{% firstof choice1 choice2 choice3 %}');
-
 ```
 
 The output is:
 ```sql
 INSERT INTO settings (notifications_mobile) VALUES
   ('none');
-
 ```
 
 The template equivalent only with conditions tags would be:
@@ -74,7 +69,6 @@ INSERT INTO settings (notifications_mobile) VALUES
   {% elif choice3 %}
     ('{{ choice3 }}');
   {% endif %}
-
 ```
 
 You can also use a literal string as a fallback value in case all passed variables
@@ -82,7 +76,6 @@ are "false":
 ```sql
 INSERT INTO settings (notifications_mobile) VALUES
   ('{% firstof choice1 choice2 choice3 "default" %}');
-
 ```
 
 ## `for`
@@ -96,7 +89,6 @@ INSERT INTO players (username) VALUES
 {% for player in game.players %}
   ('{{ player.username }}'){% if forloop.Last %};{% else %},{% endif %}
 {% endfor %}
-
 ```
 
 Accessing the key and the value for each iteration inside a map:
@@ -105,7 +97,6 @@ INSERT INTO kv_store (key, value) VALUES
 {% for k, v in context %}
   ('{{ k }}', '{{ v }}'){% if forloop.Last %};{% else %},{% endif %}
 {% endfor %}
-
 ```
 
 ### `reversed`
@@ -116,7 +107,6 @@ INSERT INTO players (username) VALUES
 {% for player in game.players reversed %}
   ('{{ player.username }}'){% if forloop.Last %};{% else %},{% endif %}
 {% endfor %}
-
 ```
 
 ### `forloop.` variables

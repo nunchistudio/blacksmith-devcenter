@@ -44,6 +44,6 @@ sources:
           - name: "my-topic"
             transformation:
               # ...
-            options:
+            config:
               # ...
 ```

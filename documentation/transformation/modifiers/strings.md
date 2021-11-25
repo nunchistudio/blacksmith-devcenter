@@ -12,7 +12,6 @@ Adds the argument to the value.
 For example:
 ```sql
 {{ "Hello "|add:"John" }}
-
 ```
 
 Will return:
@@ -28,7 +27,6 @@ letter, this filter has no effect.
 For example:
 ```sql
 {{ "hi there!"|capfirst }}
-
 ```
 
 Will return:
@@ -43,7 +41,6 @@ Removes all values of the argument from the given string.
 For example:
 ```sql
 {{ "Hello world"|cut: " " }}
-
 ```
 
 Will return:
@@ -58,7 +55,6 @@ If value evaluates to `False`, uses the given default. Otherwise, uses the value
 For example:
 ```sql
 {{ ""|default:"n/a" }}
-
 ```
 
 Will return:
@@ -73,7 +69,6 @@ Returns the length of the string.
 For example:
 ```sql
 {{ "Jane"|length }}
-
 ```
 
 Will return:
@@ -88,7 +83,6 @@ Returns `True` if the value's length is the argument, or `False` otherwise.
 For example:
 ```sql
 {{ "Jane"|length_is:"3" }}
-
 ```
 
 Will return:
@@ -103,7 +97,6 @@ Converts a string into all lowercase.
 For example:
 ```sql
 {{ "This is AWESOME"|lower }}
-
 ```
 
 Will return:
@@ -113,15 +106,14 @@ this is awesome
 
 ## `pluralize`
 
-Returns a plural suffix if the value is not 1, "1", or an object of length 1. By
-default, this suffix is "s".
+Returns a plural suffix if the value is not `1`, `"1"`, or an object of length `1`.
+By default, this suffix is `s`.
 
 For example:
 ```sql
 customer{{ 4|pluralize }}
 cherr{{ 0|pluralize:"y,ies" }}
 cherr{{ 3|pluralize:"y,ies" }}
-
 ```
 
 Will return:
@@ -140,7 +132,6 @@ and trailing whitespace.
 For example:
 ```sql
 {{ "Jane Doe"|slugify }}
-
 ```
 
 Will return:
@@ -156,7 +147,6 @@ and the remaining characters lowercase.
 For example:
 ```sql
 {{ "My first post"|title }}
-
 ```
 
 Will return:
@@ -171,7 +161,6 @@ Converts a string into all uppercase.
 For example:
 ```sql
 {{ "Hello world"|upper }}
-
 ```
 
 Will return:
@@ -186,7 +175,6 @@ Returns the number of words.
 For example:
 ```sql
 {{ "Hello Jane, how are you today?"|wordcount }}
-
 ```
 
 Will return:

@@ -83,7 +83,7 @@ sources:
           - name: "my-sql-store"
             transformation:
               # ...
-            options:
+            config:
               # ...
 ```
 

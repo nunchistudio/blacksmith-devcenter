@@ -18,7 +18,6 @@ are output:
       '{{ user.id }}'
     );
 {% endif %}
-
 ```
 
 The `{% if %}` tag may take one or several `{% elif %}` clauses, as well as an
@@ -38,7 +37,6 @@ Example if there is an `order` and a `payment`:
       '{{ user.id }}'
     );
 {% endif %}
-
 ```
 
 Example if there is a `user` or a `payment`:
@@ -50,7 +48,6 @@ Example if there is a `user` or a `payment`:
       '{{ user.id }}'
     );
 {% endif %}
-
 ```
 
 Example if there is no user and a `payment`:
@@ -61,7 +58,6 @@ Example if there is no user and a `payment`:
       {{ payment.amount | floatformat:2 }}
     );
 {% endif %}
-
 ```
 
 Use of both `and` and `or` clauses within the same tag is allowed, with `and` having

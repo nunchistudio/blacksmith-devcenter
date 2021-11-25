@@ -64,10 +64,10 @@ gateway:
 
     transformation:
       values:
-        user_id: "body.user_id"
-        subscription_id: "body.subscription_id"
-        sku: "body.subscription_sku"
-        quantity: "body.subscription_quantity"
+        user_id: "{% query 'body.user.id' %}"
+        subscription_id: "{% query 'body.subscriptions.0.id' %}"
+        sku: "{% query 'body.subscriptions.0.sku' %}"
+        quantity: "{% query 'body.subscriptions.0.quantity' %}"
 
 ---
 

@@ -16,7 +16,6 @@ For example:
   SELECT id FROM games
   WHERE number_players >= {{ total }};
 {% endwith %}
-
 ```
 
 The populated variable (in the example above, `total`) is only available between

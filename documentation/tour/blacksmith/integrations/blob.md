@@ -43,6 +43,6 @@ sources:
           - name: "my-bucket"
             transformation:
               # ...
-            options:
+            config:
               # ...
 ```

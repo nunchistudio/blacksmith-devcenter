@@ -1,21 +1,21 @@
 ---
-title: Lists
+title: Objects & Arrays
 enterprise: false
 ---
 
-# Lists
+# Objects & Arrays
 
-The examples in this document share `players` for the variable `value`, which is:
+The examples in this document share the same JSON returned by a `transformation`,
+which is:
 ```json
 {
-  "players": [
+"players": [
     "John",
     "Jane",
     "Alex",
     "Max"
   ]
 }
-
 ```
 
 ## `first`
@@ -26,7 +26,6 @@ such as strings, numbers, or booleans.
 For example:
 ```sql
 {{ players|first }}
-
 ```
 
 Will return:
@@ -42,7 +41,6 @@ slice or array of basic types such as strings, numbers, or booleans.
 For example:
 ```sql
 {{ players|join:", " }}
-
 ```
 
 Will return:
@@ -58,7 +56,6 @@ such as strings, numbers, or booleans.
 For example:
 ```sql
 {{ players|last }}
-
 ```
 
 Will return:
@@ -73,7 +70,6 @@ Returns the length of the list.
 For example:
 ```sql
 {{ players|length }}
-
 ```
 
 Will return:
@@ -88,7 +84,6 @@ Returns `True` if the value's length is the argument, or `False` otherwise.
 For example:
 ```sql
 {{ players|length_is:"4" }}
-
 ```
 
 Will return:
@@ -104,7 +99,6 @@ basic types such as strings, numbers, or booleans.
 For example:
 ```sql
 {{ players|random }}
-
 ```
 
 *Could* return:

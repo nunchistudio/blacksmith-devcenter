@@ -4,7 +4,7 @@ integrations:
   schema:
     - key: "name"
       type: "string"
-      example: "my-webhook"
+      example: "my-http-api"
       required: true
       description: |
         The name of the integration to register.
@@ -19,10 +19,10 @@ integrations:
 
 ---
 
-### Working with topics
+### Working with HTTP APIs
 
-Once registered, an integration of type `webhook` allows to interact with a HTTP
-API for **L**oading data into a web service. Within a trigger in the gateway:
+Once registered, an integration of type `http` allows to interact with a web
+service for **L**oading via a HTTP API. Within a trigger in the gateway:
 ```yml
 sources:
   - name: "my-source"
@@ -31,9 +31,9 @@ sources:
       - name: "my-trigger"
         # ...
         integrations:
-          - name: "my-webhook"
+          - name: "my-http-api"
             transformation:
               # ...
-            options:
+            config:
               # ...
 ```

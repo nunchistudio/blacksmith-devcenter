@@ -5,7 +5,7 @@ gateway:
     name: "my-bucket"
 
   schema:
-    - key: "filename"
+    - key: "file"
       type: "string"
       example: "./path/file.json"
       required: true
@@ -24,12 +24,6 @@ gateway:
       description: |
         Specify the language used for the file's content, if any.
 
-    - key: "md5"
-      type: "string"
-      example: "eabe30e8f540d6c49110a19eae5ce71c"
-      description: |
-        Specify the MD5 of the file's content for integrity check.
-
     - key: "meta"
       type: "map[string]string"
       example:
@@ -39,7 +33,10 @@ gateway:
 
 ---
 
-### Transformation & Load to a bucket
+### Load to a bucket
+
+When **L**oading data to a blob store, the JSON returned by the `transformation`
+is the one actually **L**oaded into the integration, as the *object*.
 
 Given the example defined above and the `transformation` defined in the example
 on the *code* section, the JSON document written into the bucket would be:

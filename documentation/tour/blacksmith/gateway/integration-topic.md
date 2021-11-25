@@ -14,7 +14,11 @@ gateway:
 
 ---
 
-### Transformation & Load to a topic
+### Load to a topic
+
+When **L**oading (*a.k.a* publishing) data to a topic, the JSON returned by the
+`transformation` is the one actually **L**oaded (*a.k.a* published) into the
+integration, as the *body* of the message.
 
 Given the example defined above and the `transformation` defined in the example
 on the *code* section, the JSON message published into the topic would be:

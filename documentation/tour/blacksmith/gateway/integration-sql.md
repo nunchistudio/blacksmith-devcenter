@@ -10,23 +10,24 @@ gateway:
       example: "./queries/insert-user.sql"
       description: |
         Relative path to the SQL query to compile and execute. Only one of `file`
-        and `inline` must be set.
+        and `query` must be set.
 
-    - key: "inline"
+    - key: "query"
       type: "string"
       description: |
-        The SQL query to compile and execute. Only one of `file` and `inline`
+        The SQL query to compile and execute. Only one of `file` and `query`
         must be set.
 
 ---
 
-### Transformation & Load to a SQL database
+### Load to a SQL database
 
-SQL queries can leverage the [SQL template syntax](/blacksmith/sqltemplate), a
-Python / Django-syntax like templating-language.
+When **L**oading data to a SQL database, the JSON returned by the `transformation`
+is used ad data source for templating the SQL query. It adds a convenient way to
+generate SQL dynamically with contextual data and returning the compiled SQL file.
 
-We'll assume the content of the `insert-user.sql` is as follow (formatted for
-better responsive readability):
+We'll assume the content of the `./queries/insert-user.sql` defined in `config`
+is as follow (formatted for better responsive readability):
 ```sql
 INSERT INTO transactions (
   id,
@@ -42,7 +43,7 @@ INSERT INTO transactions (
   );
 ```
 
-A SQL query can be passed directly with the `inline` key instead of the `file`
+A SQL query can be passed directly with the `query` key instead of the `file`
 one.
 
 Given the `body` example defined above, the `transformation` defined in the example
@@ -63,5 +64,5 @@ INSERT INTO transactions (
   );
 ```
 
-The SQL query is automatically wrapped inside a transaction ensuring full success
-or failure.
+The SQL query is automatically wrapped inside a transaction ensuring full
+`success` or `failure`.

@@ -84,9 +84,9 @@ sources:
 
 The gateway now exposes a route `POST` on `/api/users`.
 
-Finally, we add the integration `warehouse` in the `integrations` object.
-The integration takes a `transformation` in addition to `options`, specific to
-each kind of integration:
+Finally, we add the integration `warehouse` in the `integrations` object. The
+integration takes a `transformation` in addition to `config`, specific to each
+kind of integration:
 ```yml
 sources:
   - name: "api"
@@ -103,9 +103,9 @@ sources:
         integrations:
           - name: "warehouse"
             transformation:
-              user: "body.user"
-            options:
-              inline: |
+              user: "{% query 'body.user' %}"
+            config:
+              query: |
                 INSERT INTO users (id, username) VALUES
                   ('{% uuid %}', '{{ user.username }}');
 ```
@@ -116,8 +116,9 @@ to a key `user`, which is the data of `body.user` exposed by the trigger. Knowin
 this, the integration can insert a new user by accessing the `user` object exposed
 by the `transformation`.
 
-In summary, this triggers accepts `POST` requests on `/api/users`. On each request,
-the integration `warehouse` is leveraged and the query in `inline` is executed.
+In summary, this trigger accepts `POST` requests on `/api/users`. On each request,
+data is **T**ransformed for the integration `warehouse`. Then, the query in `inline`
+is executed, templated with the JSON returned by its `transformation` object.
 
 The gateway is ready to accept events on this new HTTP route. However our database
 is not. Let's create our first migration!
