@@ -4,7 +4,7 @@ Blacksmith offers a unique and consistent DataOps platform, removing most of the
 counterproductive tasks data engineers must handle. It allows engineering teams
 to benefit from a complete low-code workflow with advanced data quality and
 reliability out-of-the-box from end-to-end:
-![DataOps with Blacksmith](/images/blacksmith/how-overview.png)
+![DataOps with Blacksmith](https://nunchi.studio/images/blacksmith/how-overview.png)
 
 Any team that is building — or think about building — such a platform knows the
 tremendous amount of work needed to properly accomplish this mission. Think of
