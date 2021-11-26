@@ -55,14 +55,15 @@ The `load` policies are applied when **L**oading data into the integration. They
 are as follow:
 - `timeout` (in seconds) is the maximum time of a single data **L**oad execution
 	attempt. This timeout should be as short as the longest possible execution
-	of the **L**oad.
+	of the **L**oad. Required.
 - `initialInterval` (in seconds) is the backoff interval for the first retry.
+  Defaults to `5`.
 - `backoffCoefficient` is the coefficient used to calculate the next retry
 	backoff interval. The next retry interval is previous interval multiplied
-	by this coefficient. Must be `1.0` or larger.
+	by this coefficient. Must be `1.0` or larger. Defaults to `2.0`.
 - `maximumInterval` (in seconds) is the maximum backoff interval between retries.
   Exponential backoff leads to interval increase. This value is the cap of the
-  interval. If not interval is provided, the value is `100 * initialInterval`.
+  interval. Defaults to `100 * initialInterval`.
 - `maximumAttempts` is the maximum number of attempts of retries. When exceeded
   the retries stop even if not expired yet.
 

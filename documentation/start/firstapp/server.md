@@ -5,7 +5,7 @@ enterprise: false
 
 # Running the server
 
-As detailed in the ["How it works"](/blacksmith/start/onboarding/how), the server
+As detailed in the "[How it works](/blacksmith/start/onboarding/how)", the server
 is the orchestration service. The server itself does not execute application code,
 but instead tracks the state of it using queues, timers, and a database.
 

@@ -18,20 +18,21 @@ sql:
       migration:
         path: "./warehouse/migrations"
         timeout: 20
-      operation:
-        timeout: 20
 ```
 
-`path` represents the path to the directory where all migrations files for this
-integration are stored. The `timeout` (in seconds) is the maximum time of a single
-migration execution. This timeout should be as short as the longest possible
-execution of a migration or an operation.
+The `migration` policies are applied when managing migrations for the integration.
+They are as follow:
+- `path` is the relative path to the directory where migrations' files of the
+  integration are versioned. Required to enable migrations.
+- `timeout` (in seconds) is the maximum time of a single database migration's
+  execution attempt. This timeout should be as short as the longest possible
+  execution of the migration. Required if `path` is set.
 
 ## Generating a new migration
 
 The CLI provides a convenient way to generate migration files:
 ```bash
-$ blacksmith generate migrations \
+$ blacksmith generate migration \
   --name init \
   --path ./warehouse/migrations
 ```

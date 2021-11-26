@@ -1,14 +1,10 @@
 # Blacksmith developer center
 
-Blacksmith allows **software engineers** to **E**xtract, **T**ransform (if desired),
-and **L**oad data across services. This can be done using YAML / JSON configuration
-only, or using our SDKs directly from third-party applications. It also allows
-**data engineers** to run operations (a.k.a. **T**ransformations), queries (a.k.a.
-*SELECT*s), and migrations on top of any SQL database.
-
-This approach lets engineering teams get rid of every counterproductive tasks,
-as well as collaborate on a unique and consistent data platform from end-to-end:
-![DataOps with Blacksmith](https://nunchi.studio/images/blacksmith/how-overview.png)
+Blacksmith offers a unique and consistent DataOps platform, removing most of the
+counterproductive tasks data engineers must handle. It allows engineering teams
+to benefit from a complete low-code workflow with advanced data quality and
+reliability out-of-the-box from end-to-end:
+![DataOps with Blacksmith](/images/blacksmith/how-overview.png)
 
 Any team that is building — or think about building — such a platform knows the
 tremendous amount of work needed to properly accomplish this mission. Think of

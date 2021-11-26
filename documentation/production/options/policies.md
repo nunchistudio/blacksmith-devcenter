@@ -33,20 +33,20 @@ integrations.
 
 `migration` policies:
 - `path` is the relative path to the directory where migrations' files of the
-  integration are versioned.
+  integration are versioned. Required to enable migrations.
 - `timeout` (in seconds) is the maximum time of a single database migration's
   execution attempt. This timeout should be as short as the longest possible
-  execution of the migration.
+  execution of the migration. Required if `path` is set.
 
 `operation` policies:
 - `timeout` (in seconds) is the maximum time of a single database operation's
   execution attempt. This timeout should be as short as the longest possible
-  execution of the operation.
+  execution of the operation. Required.
 
 `load` policies:
 - `timeout` (in seconds) is the maximum time of a single data **L**oad execution
 	attempt. This timeout should be as short as the longest possible execution
-	of the **L**oad.
+	of the **L**oad. Required.
 - `initialInterval` (in seconds) is the backoff interval for the first retry.
   Defaults to `5`.
 - `backoffCoefficient` is the coefficient used to calculate the next retry

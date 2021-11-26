@@ -35,15 +35,15 @@ First, generate a new model:
 ```bash
 $ blacksmith generate model \
   --name user \
-  --path ./models/users \
+  --path ./models/users/extraction.json \
   --extend trigger/http_endpoint
 ```
 
 Here we add the `--extend` flag with `trigger/http_endpoint` as value. The generated
 model inherits the schema of a data **E**xtraction from a HTTP endpoint, as defined
-in the [application reference](/blacksmith/tour). This way, you can set validations
-not only for the `body`, but also for the `headers`, `query`, etc. of the HTTP
-request.
+in the [Application reference](/blacksmith/tour). This way, you can set validations
+not only for the `body`, but also for the `headers`, `query`, etc. passed by the
+HTTP request.
 
 We can then add the `model` key with the path to the generated model for validating
 the data:
@@ -54,7 +54,7 @@ sources:
     triggers:
       - name: "new_user"
         # ...
-        model: "./models/users/user.json"
+        model: "./models/users/extraction.json"
         integrations:
           # ...
 ```
@@ -99,24 +99,30 @@ this:
 }
 ```
 
+You can now restart the worker loader and the gateway, and see how the ETL pipeline
+reacts with both good and bad data.
+
 ## Validation *post* Transformation
 
 Now, let's validate the data *after* the **T**ransformation happened. This aims
 to validate the data for each integration, allowing to have a dedicated model
 for each of them.
 
-We need to generate a new model for **L**oading this kind of data to the `warehouse`
-integration:
+As explained before, a `sql` integration doesn't need the `transformation` inside
+a trigger. For the purpose of these guides, let's assume we also have the non-SQL
+`nonexisting-nosql` integration, and wish to validate data *before* **L**oading
+it.
+
+We would need to generate a new model for **L**oading this kind of data to the
+`nonexisting-nosql` integration:
 ```bash
 $ blacksmith generate model \
   --name user \
-  --path ./warehouse/models
+  --path ./models/users/load.json
 ```
 
-Here we generate a model in the `warehouse` directory, but feel free to organize
-your files and directories as it best fits your needs.
-
-Then, we can set the path to the model for the integration as the value for `model`:
+Then, we would set the path to the model for the integration as the value for
+`model`:
 ```yml
 sources:
   - name: "api"
@@ -125,9 +131,13 @@ sources:
       - name: "new_user"
         # ...
         integrations:
-          - name: "warehouse"
-            # ...
-            model: "./warehouse/models/user.json"
+          - name: "nonexisting-nosql"
+            model: "./models/users/load.json"
+            transformation:
+              id: "{% uuid %}"
+              username: "{% query 'body.user.username' %}"
+            config:
+              # ...
 ```
 
 This means the `transformation` object defined for the integration will be tested
@@ -140,20 +150,19 @@ Following on our example, the model shall look like this:
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "user",
   "title": "user",
-  "description": "JSON schema for validating data before Loading to warehouse.",
+  "description": "JSON schema for validating data before Loading to a non-SQL integration.",
   "type": "object",
-  "required": ["username"],
+  "required": ["id", "username"],
   "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
     "username": {
       "type": "string"
     }
   }
 }
 ```
-
-We only need a `username` key, which is required.
-
-You can now restart the worker loader and the gateway, and see how the ETL
-pipeline reacts with both good and bad data.
 
 Finally, we can retrieve our users from the database by running a select.

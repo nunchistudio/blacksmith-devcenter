@@ -6,8 +6,8 @@ enterprise: false
 # Running the workers
 
 The workers must be running if you want clients to interact with integrations.
-They are the middlemen executing the desired tasks. As detailed in the ["How it
-works"](/blacksmith/start/onboarding/how), the `loader` and `operator` are two
+They are the middlemen executing the desired tasks. As detailed in the "[How it
+works](/blacksmith/start/onboarding/how)", the `loader` and `operator` are two
 workers running different kind of tasks:
 - The **loader** is in charge of **L**oading data asynchronously into integrations.
   This worker is necessary if you leverage Blacksmith for ETL / ELT.
